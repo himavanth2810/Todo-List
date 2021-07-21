@@ -43,7 +43,10 @@ function deleteCheckTodo(event){
 
     if(item.classList[0]=== "trash-btn"){
       const todo = item.parentElement;
-      todo.remove();
+      todo.classList.add("falling");
+      todo.addEventListener('transitionend',function(){
+        todo.remove();
+      });
     }
 
     if(item.classList[0]=== "check-btn"){
