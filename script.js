@@ -8,6 +8,7 @@ window.addEventListener("load",()=>{
 });
 
 todoButton.addEventListener("click",addTodo);
+todoList.addEventListener("click", deleteCheckTodo);
 
 function addTodo(event) {
     event.preventDefault();
@@ -16,18 +17,37 @@ function addTodo(event) {
     todoDiv.classList.add("todo");
 
     const newTodo = document.createElement('li');
-    newTodo.innerText = "hello";
+    newTodo.innerText = todoInput.value;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
 
     //Check and Delete button
     const checkButton = document.createElement('button');
+    const trashButton = document.createElement('button');
+
     checkButton.innerHTML = '<i class="fas fa-check"></i>';
     checkButton.classList.add("check-btn");
-    todoDiv.appendChild(checkButton);
 
-    const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add("trash-btn");
+
+    todoDiv.appendChild(checkButton);
     todoDiv.appendChild(trashButton);
+
+    todoList.appendChild(todoDiv);
+    todoInput.value= "";
+}
+
+function deleteCheckTodo(event){
+    const item = event.target;
+
+    if(item.classList[0]=== "trash-btn"){
+      const todo = item.parentElement;
+      todo.remove();
+    }
+
+    if(item.classList[0]=== "check-btn"){
+        const todo = item.parentElement;
+        todo.classList.toggle('checked');
+    }
 }

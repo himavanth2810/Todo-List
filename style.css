@@ -33,6 +33,10 @@ form input, form button{
     background: white; 
 }
 
+form input{
+    width: 420px;
+}
+
 form button{
     color: black;
     background: white;
@@ -43,5 +47,53 @@ form button{
 form button:hover{
   background: black;
   color: white;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list{
+   min-width: 450px;
+   list-style: none;
+}
+
+.todo{
+    margin-top: 10px;
+    background: white;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo li{
+    flex: 1;
+}
+
+.trash-btn, .check-btn{
+    background-color:  black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-trash, .fa-check{
+    pointer-events: none;
+}
+.check-btn{
+    background: rgb(73, 200, 73);
+}
+
+.trash-btn{
+    background: rgb(247, 41, 41);
+}
+.todo-item{
+    padding: 0rem 0.7rem;
 }
 
